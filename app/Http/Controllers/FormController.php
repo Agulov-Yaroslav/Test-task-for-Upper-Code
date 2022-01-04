@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 
+
 class FormController extends Controller
 {
     //Да этот код можно было бы сократить, но видимо делал это неправильно, так как у меня выдавало странные ошибки
@@ -37,7 +38,6 @@ class FormController extends Controller
                 "user_id" => Auth::user()->id,
             ]);
         }
-
 
         if($form){
             return view('success');

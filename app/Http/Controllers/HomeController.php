@@ -17,11 +17,17 @@ class HomeController extends Controller
     public function index()
     {
 
+        $forms = Form::with('user')->get();
+
         if(Auth::user()->role == 'user') {
-            return view('user');
+
+
+            return view('user', ['forms'=>$forms]);
         }
         elseif (Auth::user()->role == 'admin'){
-            return view('admin');
+            return view('admin', [
+                "forms" =>$forms,
+                ]);
         }
         else return abort(404);
     }
