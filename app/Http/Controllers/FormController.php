@@ -38,10 +38,12 @@ class FormController extends Controller
                 "user_id" => Auth::user()->id,
             ]);
         }
+        $last_id = $form->id;
 
         if($form){
-            return view('success');
+            return redirect()->route('send', [$last_id]);
         }
+
 
     }
 }
